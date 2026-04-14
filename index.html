@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan FPB & KPK!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fa-solid fa-rocket"></i> Modul Pintar
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#materi">Materi</a></li>
+                <li><a href="#kalkulator">Kalkulator Pintar</a></li>
+                <li><a href="#kuis">Kuis Seru</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Ayo Belajar <br><span style="color: var(--fpb-color);">FPB</span> & <span style="color: var(--kpk-color);">KPK!</span></h1>
+                <p>Belajar Matematika itu menyenangkan! Mari pecahkan rahasia angka bersama-sama dengan gembira.</p>
+                <a href="#materi" class="btn btn-primary">Mulai Belajar <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-image">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=MathBot&backgroundColor=b6e3f4" alt="Robot Matematika">
+            </div>
+        </section>
+
+        <section id="materi" class="materi">
+            <h2 class="section-title">Apa itu FPB dan KPK? 🤔</h2>
+            <div class="cards">
+                <div class="card fpb-card">
+                    <div class="card-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3>FPB</h3>
+                    <p class="subtitle">Faktor Persekutuan Terbesar</p>
+                    <p>Angka terbesar yang bisa membagi habis dua angka atau lebih secara sempurna tanpa sisa.</p>
+                    <div class="example">
+                        <strong>Contoh FPB dari 12 & 18:</strong>
+                        <p>Faktor 12 = 1, 2, 3, 4, <strong style="color:var(--fpb-color)">6</strong>, 12</p>
+                        <p>Faktor 18 = 1, 2, 3, <strong style="color:var(--fpb-color)">6</strong>, 9, 18</p>
+                        <p>Nilai terbesar yang sama adalah <strong style="color:var(--fpb-color)">6</strong>.</p>
+                    </div>
+                </div>
+                <div class="card kpk-card">
+                    <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>KPK</h3>
+                    <p class="subtitle">Kelipatan Persekutuan Terkecil</p>
+                    <p>Angka kelipatan terkecil yang sama yang didapat dari dua angka atau lebih saat dikalikan.</p>
+                    <div class="example">
+                        <strong>Contoh KPK dari 4 & 6:</strong>
+                        <p>Kelipatan 4 = 4, 8, <strong style="color:var(--kpk-color)">12</strong>, 16...</p>
+                        <p>Kelipatan 6 = 6, <strong style="color:var(--kpk-color)">12</strong>, 18, 24...</p>
+                        <p>Kelipatan terkecil yang sama adalah <strong style="color:var(--kpk-color)">12</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kalkulator" class="kalkulator">
+            <h2 class="section-title">Kalkulator Pintar 🧮</h2>
+            <p class="section-subtitle">Masukkan dua angka untuk mencari nilai FPB dan KPK-nya!</p>
+            
+            <div class="calc-box">
+                <div class="inputs">
+                    <div class="input-group">
+                        <label for="num1">Angka ke-1</label>
+                        <input type="number" id="num1" placeholder="Contoh: 12" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="num2">Angka ke-2</label>
+                        <input type="number" id="num2" placeholder="Contoh: 18" min="1">
+                    </div>
+                </div>
+                <button id="calc-btn" class="btn btn-secondary"><i class="fa-solid fa-calculator"></i> Hitung Sekarang!</button>
+                
+                <div id="calc-result" class="result-box hidden">
+                    <div class="result-item">
+                        <h4>Hasil FPB:</h4>
+                        <div id="res-fpb" class="badge badge-fpb"></div>
+                        <p id="cara-fpb" class="cara-teks"></p>
+                    </div>
+                    <div class="result-item" style="border-left: 2px dashed #E2E8F0; padding-left: 1rem;">
+                        <h4>Hasil KPK:</h4>
+                        <div id="res-kpk" class="badge badge-kpk"></div>
+                        <p id="cara-kpk" class="cara-teks"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kuis" class="kuis">
+            <h2 class="section-title">Kuis Seru! 🏆</h2>
+            <p class="section-subtitle">Uji kemampuanmu setelah belajar FPB dan KPK!</p>
+            <div class="quiz-box">
+                <div id="quiz-container">
+                    <p id="question-text">Pilih jawaban yang benar di bawah ini:</p>
+                    <div class="options" id="quiz-options">
+                        <!-- Options diisi oleh JS -->
+                    </div>
+                </div>
+                <div id="quiz-score" class="hidden">
+                    <h3>Skor Kamu: <span id="score-value">0</span> / 5</h3>
+                    <p id="score-message"></p>
+                    <button id="restart-quiz" class="btn btn-primary" style="margin-top:1rem;">Main Lagi <i class="fa-solid fa-rotate-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Modul Matematika Pintar By Antigravity</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
